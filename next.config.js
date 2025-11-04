@@ -1,4 +1,4 @@
-const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'compliant-private-transfers';
+const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'miniature-invention';
 const assetPrefix = `/${repo}/`;
 const basePath = `/${repo}`;
 
