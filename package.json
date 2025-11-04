@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run --reporter=basic",
     "test:watch": "vitest watch",
+    "monitor:actions": "bash scripts/monitor-actions.sh clkhoo5211 miniature-invention deploy.yml main",
     "deploy:ipfs": "bash scripts/deploy-ipfs-simple.sh",
     "deploy:ipfs:full": "bash scripts/deploy-ipfs.sh"
   },

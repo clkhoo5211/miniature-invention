@@ -145,16 +145,15 @@ export default function WithdrawPage() {
       const proof = JSON.parse(proofJson);
       const proofInputJson = sessionStorage.getItem('lastWithdrawProofInput');
 
-      let disclosureBundleHash: string | undefined;
+      let disclosureBundle: import('../lib/disclosure').DisclosureBundle | undefined;
       if (disclosureEnabled && proofInputJson) {
         const proofInput = JSON.parse(proofInputJson) as ProofInput;
-        const disclosureBundle = await generateDisclosureBundle({
+        disclosureBundle = await generateDisclosureBundle({
           type: 'withdraw', amount, assetSymbol: proofInput.assetSymbol,
           senderAddress: proofInput.senderAddress, recipientAddress: destinationAddress,
           proof, proofInput, disclosureOptions: { enableSelectiveDisclosure: true, scope: ['amount','assetSymbol','recipientAddress','timestamp'] }
         });
         storeDisclosureBundle(disclosureBundle);
-        disclosureBundleHash = disclosureBundle.hash;
         setLastDisclosureGenerated(Date.now());
       }
 
@@ -164,7 +163,7 @@ export default function WithdrawPage() {
         amount,
         address: destinationAddress,
         proof,
-        disclosure: disclosureEnabled ? { enableSelectiveDisclosure: true, scope: ['amount','assetSymbol','recipientAddress','timestamp'], disclosureHash: disclosureBundleHash } : undefined,
+        disclosure: disclosureBundle,
       });
 
       const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || '0x0000000000000000000000000000000000000000';

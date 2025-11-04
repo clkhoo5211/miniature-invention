@@ -132,7 +132,11 @@ export async function prepareWithdraw(params: {
     amount: params.amount,
     address: params.address,
     proof: params.proof,
-    disclosure: params.disclosure,
+    disclosure: params.disclosure ? {
+      enableSelectiveDisclosure: true,
+      scope: params.disclosure.scope,
+      disclosureHash: params.disclosure.hash,
+    } : undefined,
   });
 }
 

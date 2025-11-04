@@ -1,5 +1,7 @@
 # Compliant Private Transfers
 
+[![Deploy to GitHub Pages](https://github.com/clkhoo5211/miniature-invention/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/clkhoo5211/miniature-invention/actions/workflows/deploy.yml)
+
 Privacy-forward, KYC-gated shielded transfer system using zero-knowledge proofs across multiple blockchains. UI and documentation hosted on IPFS/IPNS.
 
 ## Features

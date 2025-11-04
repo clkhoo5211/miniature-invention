@@ -35,7 +35,8 @@ export default function NavWalletClient() {
       ? (window as unknown as { ethereum?: EthereumProvider }).ethereum
       : undefined)
 
-    const handleAccounts = (accounts: string[]) => {
+    const handleAccounts = (...args: unknown[]) => {
+      const accounts = args[0] as string[]
       const next = accounts && accounts.length > 0 ? accounts[0] : null
       setAddress(next)
       if (typeof window !== 'undefined') {
