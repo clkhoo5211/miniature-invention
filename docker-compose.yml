@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  ipfs:
+    image: ipfs/kubo:latest
+    container_name: cpt-ipfs
+    restart: unless-stopped
+    command: daemon --agent-version-suffix=docker
+    ports:
+      - "127.0.0.1:5001:5001"   # IPFS API
+      - "4001:4001"            # Swarm
+      - "127.0.0.1:8081:8080"  # Gateway (mapped to host 8081)
+    volumes:
+      - ./docker/ipfs:/data/ipfs
+
+  web:
+    image: nginx:alpine
+    container_name: cpt-web
+    depends_on:
+      - ipfs
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - ./out:/usr/share/nginx/html:ro
+    restart: unless-stopped

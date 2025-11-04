@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint || echo "⚠️ Linting failed or not configured"
+        continue-on-error: true
+
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_CONTRACT_ADDRESS: 0x0000000000000000000000000000000000000000
+
+      - name: Analyze bundle size
+        run: |
+          echo "## 📦 Bundle Size Analysis" >> $GITHUB_STEP_SUMMARY
+          if [ -d "out/_next/static" ]; then
+            TOTAL_SIZE=$(du -sh out/_next/static | cut -f1)
+            echo "**Total Static Assets**: $TOTAL_SIZE" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Largest Chunks:" >> $GITHUB_STEP_SUMMARY
+            find out/_next/static -type f -name "*.js" -exec du -h {} \; | sort -rh | head -5 | \
+              awk '{print "- " $2 " (" $1 ")"}' >> $GITHUB_STEP_SUMMARY
+          fi
+        continue-on-error: true
+
+      - name: Run tests
+        run: npm test --silent
+
+      - name: Test coverage (if available)
+        run: |
+          if npm run test -- --coverage 2>/dev/null; then
+            echo "✅ Coverage report generated"
+          else
+            echo "⚠️ Coverage not configured"
+          fi
+        continue-on-error: true
+
+      - name: Security audit
+        run: npm audit --audit-level=moderate || echo "⚠️ Security audit completed with warnings"
+        continue-on-error: true

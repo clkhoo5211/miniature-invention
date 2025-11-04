@@ -1,0 +1,75 @@
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/app/components/WalletConnect.tsx
+  22:6  warning  React Hook useEffect has a missing dependency: 'checkConnection'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/app/dashboard/components/BalancesSection.tsx
+   3:10  warning  'useState' is defined but never used       @typescript-eslint/no-unused-vars
+  21:11  warning  'show' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/app/deposit/components/ProofGenerationPanel.tsx
+  21:3  warning  'selectedNetwork' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/app/deposit/page.tsx
+   6:10  warning  'validateAddress' is defined but never used     @typescript-eslint/no-unused-vars
+   9:10  warning  'connectWallet' is defined but never used       @typescript-eslint/no-unused-vars
+  46:10  warning  'txHash' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  47:10  warning  'noteText' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  50:10  warning  'proofData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/app/lib/api.ts
+  119:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/app/lib/icp.ts
+   10:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   24:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   71:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  174:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  211:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/app/lib/note.ts
+  15:10  warning  'fromHex' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/app/lib/wallet.ts
+   95:19   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  144:17   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  207:21   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  235:19   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  249:129  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/app/onboarding/page.tsx
+   91:40  error    Unexpected any. Specify a different type                                                                        @typescript-eslint/no-explicit-any
+  126:6   warning  React Hook useEffect has a missing dependency: 'icpIdentity'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  199:18  warning  'e' is defined but never used                                                                                   @typescript-eslint/no-unused-vars
+  206:63  error    Unexpected any. Specify a different type                                                                        @typescript-eslint/no-explicit-any
+  217:6   warning  React Hook useEffect has a missing dependency: 'networks'. Either include it or remove the dependency array     react-hooks/exhaustive-deps
+  225:30  warning  'ensureChain' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  253:21  error    Unexpected any. Specify a different type                                                                        @typescript-eslint/no-explicit-any
+  270:18  warning  'e' is defined but never used                                                                                   @typescript-eslint/no-unused-vars
+  296:14  warning  'error' is defined but never used                                                                               @typescript-eslint/no-unused-vars
+  359:21  error    Unexpected any. Specify a different type                                                                        @typescript-eslint/no-explicit-any
+  601:78  warning  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                 react/no-unescaped-entities
+  614:31  warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                 react/no-unescaped-entities
+  614:51  warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                 react/no-unescaped-entities
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/app/relayers/page.tsx
+  26:6  warning  React Hook useEffect has a missing dependency: 'loadRelayers'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/app/withdraw/page.tsx
+  189:16  warning  'receiptError' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/src/adapters/evm/EvmAdapter.ts
+  85:15  warning  'scopeStr' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/tests/ipfs.test.ts
+   19:12  warning  'key' is defined but never used    @typescript-eslint/no-unused-vars
+   33:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   45:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   82:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  126:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/khoo/Downloads/project4/projects/project-20251030-232211-compliant-private-transfers/tests/security.test.ts
+  7:3  warning  'validateNetworkSecure' is defined but never used  @typescript-eslint/no-unused-vars
+  8:3  warning  'validateAssetSecure' is defined but never used    @typescript-eslint/no-unused-vars
+
+✖ 44 problems (15 errors, 29 warnings)
+

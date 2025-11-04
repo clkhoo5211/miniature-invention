@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+.venv/
+.env
+dist/
+build/
+.next/
+.DS_Store
+.ipfs/
